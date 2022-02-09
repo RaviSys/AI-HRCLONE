@@ -61,9 +61,13 @@
       <%= form.label :date_of_birth, style: "display: block", class: "form-label" %>
       <%= form.date_field :date_of_birth, class: "form-control form-control-lg" %>
     </div>
+    <div class="col-lg-6">
+      <%= form.label :gender, style: "display: block", class: "form-label" %>
+      <%= form.select :gender, options_for_select(Employee::GENDER, selected: employee.gender), {}, { class: "form-control form-control-lg form-select form-select-lg" } %>
+    </div>
   </div>
 
-  <div class="form-group mt-2">
+  <div class="form-group mt-5">
     <%= form.submit class: "btn btn-primary btn-lg" %>
     <%= link_to "Back to employees", admin_employees_path, class: "btn btn-outline-primary btn-lg" %>
   </div>

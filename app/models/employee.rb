@@ -1,8 +1,15 @@
 class Employee < ApplicationRecord
+  GENDER = %w{male female}
+
   validates :first_name, :last_name, presence: true,
             format: { 
               with: /\A[a-zA-Z]+\z/,
               message: "only allows letters" 
+            }
+  validates :gender, 
+            inclusion: { 
+              in: %w(male female),
+              message: "%{value} is not a valid gender" 
             }
   validates :work_email, :personal_email, 
             presence: true, uniqueness: true

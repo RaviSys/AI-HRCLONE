@@ -1,3 +1,13 @@
-<h1>New employee</h1>
-
-<%= render "form", employee: @employee %>
+<div class="col-lg-12">
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <h1>Add New employee</h1>
+      <p class="text-primary">This is the place to create a new employee. Please not that all the fields with * are mandatory to fill.</p>
+    </div>
+  </div>
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <%= render "form", employee: @employee %>
+    </div>
+  </div>
+</div>
