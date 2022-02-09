@@ -1,0 +1,70 @@
+<%= form_with(model: [:admin, employee]) do |form| %>
+  <% if employee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row form-group mt-2">
+    <div class="col-lg-6">
+      <%= form.label :first_name, style: "display: block", class: "form-label" %>
+      <%= form.text_field :first_name, class: "form-control form-control-lg" %>
+    </div>
+    <div class="col-lg-6">
+      <%= form.label :last_name, style: "display: block", class: "form-label" %>
+      <%= form.text_field :last_name, class: "form-control form-control-lg" %>
+    </div>
+  </div>
+
+  <div class="row form-group mt-2">
+    <div class="col-lg-6">
+      <%= form.label :personal_email, style: "display: block", class: "form-label" %>
+      <%= form.text_field :personal_email, class: "form-control form-control-lg" %>
+    </div>
+    <div class="col-lg-6">
+      <%= form.label :work_email, style: "display: block", class: "form-label" %>
+      <%= form.text_field :work_email, class: "form-control form-control-lg" %>
+    </div>
+  </div>
+  
+  <div class="row form-group mt-2">
+    <div class="col-lg-6">
+      <%= form.label :permanent_mobile_number, style: "display: block", class: "form-label" %>
+      <%= form.text_field :permanent_mobile_number, class: "form-control form-control-lg" %>
+    </div>
+    <div class="col-lg-6">
+      <%= form.label :alternate_mobile_number, style: "display: block", class: "form-label" %>
+      <%= form.text_field :alternate_mobile_number, class: "form-control form-control-lg" %>
+    </div>
+  </div>
+  
+  <div class="row form-group mt-2">
+    <div class="col-lg-6">
+      <%= form.label :permanent_address, style: "display: block", class: "form-label" %>
+      <%= form.text_field :permanent_address, class: "form-control form-control-lg" %>
+    </div>
+
+    <div class="col-lg-6">
+      <%= form.label :resedential_address, style: "display: block", class: "form-label" %>
+      <%= form.text_field :resedential_address, class: "form-control form-control-lg" %>
+    </div>
+  </div>
+
+  <div class="row form-group mt-2">
+    <div class="col-lg-6">
+      <%= form.label :date_of_birth, style: "display: block", class: "form-label" %>
+      <%= form.date_field :date_of_birth, class: "form-control form-control-lg" %>
+    </div>
+  </div>
+
+  <div class="form-group mt-2">
+    <%= form.submit class: "btn btn-primary btn-lg" %>
+    <%= link_to "Back to employees", admin_employees_path, class: "btn btn-outline-primary btn-lg" %>
+  </div>
+<% end %>
