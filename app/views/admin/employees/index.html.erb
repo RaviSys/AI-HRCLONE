@@ -1,14 +1,40 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Employees</h1>
-
-<div id="employees">
-  <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
-  <% end %>
+<div class="col-lg-12 col-md-12">
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <h1>Listing Employees</h1>
+    </div>
+  </div>
+  <%= link_to "New employee", new_admin_employee_path, class: "btn btn-primary btn-lg mt-3 mb-3" %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Work Email</th>
+        <th>Permanent Contact</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.full_name %></td>
+          <td><%= employee.work_email %></td>
+          <td><%= employee.permanent_mobile_number %></td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Actions
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><%= link_to "View", admin_employee_path(employee), class: "dropdown-item" %></li>
+                <li><%= link_to "Edit", edit_admin_employee_path(employee), class: "dropdown-item" %></li>
+                <li><%= link_to "Delete", admin_employee_path(employee), class: "dropdown-item", data: { confirm: 'Are you sure?', method: :delete } %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New employee", new_admin_employee_path %>

@@ -1,10 +1,13 @@
-<h1>Editing employee</h1>
-
-<%= render "form", employee: @employee %>
-
-<br>
-
-<div>
-  <%= link_to "Show this employee", @employee %> |
-  <%= link_to "Back to employees", employees_path %>
+<div class="col-lg-12">
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <h1>Edit <%= @employee.full_name %></h1>
+      <p class="text-primary">This is the place to edit an existing employee. Please not that all the fields with * are mandatory to fill.</p>
+    </div>
+  </div>
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <%= render "form", employee: @employee %>
+    </div>
+  </div>
 </div>

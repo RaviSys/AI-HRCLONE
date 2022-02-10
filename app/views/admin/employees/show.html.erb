@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @employee %>
-
-<div>
-  <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
-  <%= link_to "Back to employees", employees_path %>
-
-  <%= button_to "Destroy this employee", @employee, method: :delete %>
+<div class="col-lg-12">
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <p style="color: green"><%= notice %></p>
+      <%= render @employee %>
+      <div>
+        <%= link_to "Back to employees", admin_employees_path %>
+        <%= button_to "Destroy this employee", admin_employee_path(@employee), method: :delete %>
+      </div>
+    </div>
+  </div>
 </div>

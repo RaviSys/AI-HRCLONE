@@ -55,6 +55,6 @@ class Admin::EmployeesController < ApplicationController
     end
 
     def employee_params
-      params.require(:employee).permit(:first_name, :last_name, :personal_email, :work_email, :permanent_mobile_number, :alternate_mobile_number, :permanent_address, :resedential_address, :date_of_birth)
+      params.require(:employee).permit(:first_name, :last_name, :personal_email, :work_email, :permanent_mobile_number, :alternate_mobile_number, :permanent_address, :resedential_address, :date_of_birth, :gender)
     end
 end

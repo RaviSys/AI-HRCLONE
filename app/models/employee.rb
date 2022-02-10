@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
               with: /\A[a-zA-Z]+\z/,
               message: "only allows letters" 
             }
-  validates :gender, 
+  validates :gender, presence: true,
             inclusion: { 
               in: %w(male female),
               message: "%{value} is not a valid gender" 
@@ -33,5 +33,9 @@ class Employee < ApplicationRecord
     if date_of_birth.present? && age < 18
       errors.add(:employee_age, 'is very low. Employee must be 18+ years old')
     end
+  end
+
+  def dob_with_age
+    "#{date_of_birth} (#{age} years)"
   end
 end
