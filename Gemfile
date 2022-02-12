@@ -75,3 +75,4 @@ gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
 gem 'faker'
+gem 'devise'
