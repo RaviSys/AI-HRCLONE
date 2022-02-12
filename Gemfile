@@ -76,3 +76,4 @@ gem 'jsbundling-rails'
 
 gem 'faker'
 gem 'devise'
+gem 'ransack'
