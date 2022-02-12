@@ -5,8 +5,7 @@
       <p style="color: green"><%= notice %></p>
       <%= render @employee %>
       <div>
-        <%= link_to "Back to employees", admin_employees_path %>
-        <%= button_to "Destroy this employee", admin_employee_path(@employee), method: :delete %>
+        <%= link_to "Back", admin_employees_path, class: "btn btn-outline-primary btn-lg" %>
       </div>
     </div>
   </div>
