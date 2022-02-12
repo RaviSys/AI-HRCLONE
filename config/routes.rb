@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :admin do 
+    get 'dashboard' => 'dashboard#index'
     resources :employees
+  end
+
+  namespace :employee do 
+    get 'dashboard' => 'dashboard#index'
   end
 end
