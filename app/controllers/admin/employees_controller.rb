@@ -2,7 +2,8 @@ class Admin::EmployeesController < ApplicationController
   before_action :set_employee, only: %i[ show edit update destroy ]
 
   def index
-    @employees = Employee.all
+    @q = Employee.ransack(params[:q])
+    @employees = @q.result(distinct: true)
   end
 
   def show; end

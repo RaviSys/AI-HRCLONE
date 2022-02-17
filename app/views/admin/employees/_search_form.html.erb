@@ -1,0 +1,54 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Search employees here</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= search_form_for q, url: :admin_employees do |form| %>
+      <div class="form-group">
+        <%= form.label :by_first_name_or_last_name, class: "form-label" %>
+        <%= form.text_field :first_name_or_last_name_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_work_email_or_personal_email, class: "form-label" %>
+        <%= form.text_field :work_email_or_personal_email_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_permanent_or_resedential_address, class: "form-label" %>
+        <%= form.text_field :permanent_address_or_resedential_address_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_permanent_or_alternate_contact, class: "form-label" %>
+        <%= form.text_field :permanent_mobile_number_or_alternate_mobile_number_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_employee_code, class: "form-label" %>
+        <%= form.text_field :employee_code_eq, class: "form-control" %>
+      </div>  
+
+      <div class="form-group">
+        <%= form.label :by_date_of_birth_less_than, class: "form-label" %>
+        <%= form.date_field :date_of_birth_lteq, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_date_of_birth_greater_than, class: "form-label" %>
+        <%= form.date_field :date_of_birth_gteq, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_gender, class: "form-label" %>
+        <%= form.text_field :gender_eq, class: "form-control" %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= form.submit 'Search Employee', class: "btn btn-primary btn-lg" %>
+        <%= link_to "Reset", admin_employees_path, class: "btn btn-outline-primary btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>
