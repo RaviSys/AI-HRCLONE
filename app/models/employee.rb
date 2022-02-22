@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+  paginates_per 20
   GENDER = %w{male female}
 
   validates :first_name, :last_name, presence: true,
