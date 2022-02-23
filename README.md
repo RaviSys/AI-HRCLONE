@@ -10,11 +10,22 @@ This project is going to be an open source HR Portal. Here you can find Employee
 
 ## Cloning the project
 
-* git clone https://github.com/RaviSys/AI-HRCLONE.git
+```
+git clone https://github.com/RaviSys/AI-HRCLONE.git
+```
 * Run bundle by running this command:
 
 ```
 bundle install
+```
+* Install Yarn Dependencies(This necessary to get bootstrap css work!)
+
+```
+yarn install
+```
+
+```
+yarn build:css
 ```
 
 ## Setup database
@@ -31,7 +42,7 @@ rails db:migrate
 To populate the application with some seed data run the seed file:
 
 ```
-raild db:seed
+rails db:seed
 ```
 
 ## Run project on local
