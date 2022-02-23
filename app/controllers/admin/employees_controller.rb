@@ -4,6 +4,10 @@ class Admin::EmployeesController < ApplicationController
   def index
     @q = Employee.ransack(params[:q])
     @employees = @q.result(distinct: true).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.csv { send_data ExportService::EmployeeExport.new(@q.result).to_csv, filename: "Employee-#{DateTime.current}.csv" }
+    end
   end
 
   def show; end

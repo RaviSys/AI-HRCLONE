@@ -8,6 +8,8 @@
   <%= link_to "New employee", new_admin_employee_path, class: "btn btn-primary btn-lg mt-3 mb-3" %>
 
   <%= link_to "Search Employee", "#offcanvasExample", data: { bs_toggle: "offcanvas" }, area: { controls: "offcanvasExample" }, role: "button", class: "btn btn-primary btn-lg" %>
+
+  <%= link_to "Export Employees", admin_employees_path(format: :csv), class: "btn btn-primary btn-lg" %>
   
   <%= render 'admin/employees/search_form', q: @q %>
   
