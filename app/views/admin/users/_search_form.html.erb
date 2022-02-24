@@ -1,0 +1,29 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Search employees here</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= search_form_for q, url: :admin_users do |form| %>
+      <div class="form-group">
+        <%= form.label :by_username, class: "form-label" %>
+        <%= form.text_field :username_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_email, class: "form-label" %>
+        <%= form.text_field :email_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :by_role, class: "form-label" %>
+        <%= form.text_field :role_eq, class: "form-control" %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= form.submit 'Search Users', class: "btn btn-primary btn-lg" %>
+        <%= link_to "Reset", admin_users_path, class: "btn btn-outline-primary btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="col-lg-12 col-md-12">
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <h1>Listing Users</h1>
+    </div>
+  </div>
+  <%= link_to "Search User", "#offcanvasExample", data: { bs_toggle: "offcanvas" }, area: { controls: "offcanvasExample" }, role: "button", class: "btn btn-primary btn-lg mt-3 mb-3" %>
+
+  <%= link_to "Export Users", admin_users_path(format: :csv), class: "btn btn-primary btn-lg mt-3 mb-3" %>
+  
+  <%= render 'admin/users/search_form', q: @q %>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.username %></td>
+          <td><%= user.role %></td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Actions
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><%= link_to "View", admin_user_path(user), class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @users %>
+</div>
