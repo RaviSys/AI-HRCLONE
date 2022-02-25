@@ -8,5 +8,9 @@ FactoryBot.define do
       role { 'admin' }
       username { 'admin123' }
     end
+
+    factory :employee_user do 
+      role { 'employee' }
+    end
   end
 end
