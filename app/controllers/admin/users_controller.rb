@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
 
   def index
     @q = User.ransack(params[:q])

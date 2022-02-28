@@ -1,4 +1,4 @@
-class Admin::EmployeesController < ApplicationController
+class Admin::EmployeesController < AdminController
   before_action :set_employee, only: %i[ show edit update destroy ]
 
   def index
