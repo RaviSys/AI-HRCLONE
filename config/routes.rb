@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   namespace :employee do 
     get 'dashboard' => 'dashboard#index'
+    get 'profile' => 'dashboard#profile'
   end
 end

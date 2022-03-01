@@ -15,8 +15,13 @@
               Resources
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Employees", admin_employees_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Users", admin_users_path, class: "dropdown-item" %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to "Dashboard", admin_dashboard_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Employees", admin_employees_path, class: "dropdown-item" %></li>
+                <li><%= link_to "Users", admin_users_path, class: "dropdown-item" %></li>
+              <% else %>
+                <li><%= link_to "Dashboard", employee_dashboard_path, class: "dropdown-item" %></li>
+              <% end %>
             </ul>
           </li>
           <li class="nav-item">

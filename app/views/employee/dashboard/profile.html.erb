@@ -1,0 +1,74 @@
+<div class="col-lg-10 col-md-12 mx-auto mt-5 mb-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h1>My Profile | <%= @current_employee.employee_code %></h1>
+      <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Name:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.full_name %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>DOB:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.date_of_birth %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Age:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= pluralize(@current_employee.age, 'year') %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Work Email:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.work_email %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Personal Email:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.personal_email %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Primary Contact:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.permanent_mobile_number %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Alternate Contact:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.alternate_mobile_number %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Permanent Address:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.permanent_address %></p>
+        </div>
+
+        <div class="col-lg-3">
+          <p class="lead float-left fw-bold"><strong>Residential Address:</strong></p>
+        </div>
+        <div class="col-lg-9">
+          <p class="lead float-left"><%= @current_employee.resedential_address %></p>
+        </div>
+      </div>
+
+      <%= link_to "Back to Dashboard", employee_dashboard_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+</div>
