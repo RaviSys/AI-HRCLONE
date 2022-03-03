@@ -37,3 +37,13 @@ end
     gender: Employee::GENDER.sample
   )
 end
+
+Employee.all.each do |employee|
+  puts "*"
+  User.create(
+    email: employee.work_email,
+    password: 'password',
+    username: employee.employee_code,
+    role: 'employee'
+  )
+end

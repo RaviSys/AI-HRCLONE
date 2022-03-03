@@ -22,6 +22,8 @@ class Employee < ApplicationRecord
 
   validate :validate_age_of_employee
 
+  scope :current_month_birthdays, -> { where('EXTRACT(day FROM date_of_birth) > ? AND EXTRACT(month FROM date_of_birth) <= ?', current_date, month_end) }
+
   def full_name
     "#{first_name} #{last_name}".strip
   end
@@ -38,5 +40,13 @@ class Employee < ApplicationRecord
 
   def dob_with_age
     "#{date_of_birth} (#{age} years)"
+  end
+
+  def self.month_end
+    Date.today.end_of_month.strftime("%m")
+  end
+
+  def self.current_date
+    Date.today.strftime("%d")
   end
 end

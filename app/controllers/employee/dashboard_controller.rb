@@ -1,7 +1,9 @@
 class Employee::DashboardController < EmployeeController
   before_action :set_current_employee
 
-  def index; end
+  def index
+    @upcoming_birthdays = Employee.current_month_birthdays
+  end
 
   def profile; end
 
