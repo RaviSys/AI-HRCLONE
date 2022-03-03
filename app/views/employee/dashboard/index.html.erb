@@ -6,7 +6,7 @@
           <p class="lead fw-bold"><%= @current_employee.full_name %></p>
           <p class="lead"><%= @current_employee.work_email %></p>
           <%= link_to "View Profile", employee_profile_path, class: "btn btn-primary" %>
-          <%= link_to "Edit Profile", "javascript:void(0)", class: "btn btn-warning" %>
+          <%= link_to "Edit Profile", employee_edit_profile_path, class: "btn btn-warning" %>
         </div>
       </div>
     </div>
