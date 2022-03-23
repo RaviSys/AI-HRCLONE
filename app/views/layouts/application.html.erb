@@ -15,6 +15,7 @@
     <div class="container">
       <%= render "shared/flash" %>
       <div class="row">
+        <%= turbo_frame_tag "modal" %>
         <%= yield %>
       </div>
     </div>

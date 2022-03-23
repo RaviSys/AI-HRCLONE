@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_092148) do
+ActiveRecord::Schema.define(version: 2022_03_23_071311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendance_swipes", force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.datetime "swiped_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_attendance_swipes_on_employee_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "employee_code"
@@ -50,4 +58,5 @@ ActiveRecord::Schema.define(version: 2022_02_12_092148) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attendance_swipes", "employees"
 end

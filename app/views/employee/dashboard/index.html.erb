@@ -10,21 +10,33 @@
         </div>
       </div>
 
-      <div class="card shadow rounded-0 mt-5">
-        <h5 class="card-header">Upcoming Birthdays</h5>
-        <div class="card-body">
-          <div class="list-group">
-            <% @upcoming_birthdays.each do |employee| %>
-              <%= link_to "javascript:void(0)", class: "list-group-item list-group-item-action" do %>
-                <p><%= employee.full_name %></p>
-                <p class="badge bg-primary"><%= employee.date_of_birth.strftime("%A, %b %d") %></p>
+      <% if @upcoming_birthdays.present? %>
+        <div class="card shadow rounded-0 mt-5">
+          <h5 class="card-header">Upcoming Birthdays</h5>
+          <div class="card-body">
+            <div class="list-group">
+              <% @upcoming_birthdays.each do |employee| %>
+                <%= link_to "javascript:void(0)", class: "list-group-item list-group-item-action" do %>
+                  <p><%= employee.full_name %></p>
+                  <p class="badge bg-primary"><%= employee.date_of_birth.strftime("%A, %b %d") %></p>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="col-lg-8 col-md-7">
+      <div class="card shadow rounded-0">
+        <div class="card-body">
+          <% if even_raw_swipes %>
+            <%= link_to "Punch In", employee_capture_punch_in_swipe_path, class: "btn btn-primary", method: :post %>
+          <% else %>
+            <%= link_to "Punch Out", employee_capture_punch_out_swipe_path, class: "btn btn-primary", method: :post %>
+          <% end %>
+          <p class="lead fw-bold mt-2">Last Swipe: <span class="text-primary"><%= @current_employee.latest_swipe %></span></p>
+        </div>
+      </div>
     </div>
   </div>  
 </div>

@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     get 'profile' => 'dashboard#profile'
     get 'edit_profile' => 'dashboard#edit_profile'
     patch 'update_profile' => 'dashboard#update_profile'
+    post 'capture_punch_in_swipe' => 'attendances#capture_punch_in_swipe'
+    post 'capture_punch_out_swipe' => 'attendances#capture_punch_out_swipe'
   end
 end

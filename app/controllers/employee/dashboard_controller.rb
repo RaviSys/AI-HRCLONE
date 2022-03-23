@@ -1,6 +1,5 @@
 class Employee::DashboardController < EmployeeController
-  before_action :set_current_employee
-
+  helper_method :even_raw_swipes
   def index
     @upcoming_birthdays = Employee.current_month_birthdays
   end
@@ -19,11 +18,11 @@ class Employee::DashboardController < EmployeeController
 
   private 
 
-  def set_current_employee
-    @current_employee = Employee.find_by(work_email: current_user.email)
-  end
-
   def profile_params
     params.require(:employee).permit!
+  end
+
+  def even_raw_swipes
+    @current_employee.attendance_swipes.count % 2 == 0
   end
 end

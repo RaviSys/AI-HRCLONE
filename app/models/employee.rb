@@ -1,7 +1,7 @@
 class Employee < ApplicationRecord
   paginates_per 20
   GENDER = %w{male female}
-
+  has_many :attendance_swipes
   validates :first_name, :last_name, presence: true,
             format: { 
               with: /\A[a-zA-Z]+\z/,
@@ -48,5 +48,9 @@ class Employee < ApplicationRecord
 
   def self.current_date
     Date.today.strftime("%d")
+  end
+
+  def latest_swipe
+    attendance_swipes.last.swiped_at.strftime("%A %d %b at %H:%M")
   end
 end
