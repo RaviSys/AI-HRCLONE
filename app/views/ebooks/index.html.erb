@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Ebooks</h1>
+
+<div id="ebooks">
+  <% @ebooks.each do |ebook| %>
+    <%= render ebook %>
+    <p>
+      <%= link_to "Show this ebook", ebook %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New ebook", new_ebook_path %>

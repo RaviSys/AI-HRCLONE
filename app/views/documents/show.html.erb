@@ -1,0 +1,14 @@
+<% if current_user == @document.user %>
+  <p style="color: green"><%= notice %></p>
+
+  <%= render @document %>
+
+  <div>
+    <%= link_to "Edit this document", edit_document_path(@document), class: "btn btn-warning" %>
+    <%= link_to "Back to documents", documents_path, class: "btn btn-outline-primary" %>
+
+    <%= link_to "Destroy this document", @document, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure you want to delete this file?' } %>
+  </div>
+<% else %>
+  <p class="lead">You are not authorized to access others documents</p>
+<% end %>

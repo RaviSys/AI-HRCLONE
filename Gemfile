@@ -78,4 +78,4 @@ gem 'faker'
 gem 'devise'
 gem 'ransack'
 gem 'kaminari'
-
+gem 'activestorage-validator'

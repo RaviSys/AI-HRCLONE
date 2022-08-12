@@ -1,0 +1,10 @@
+<div id="<%= dom_id document %>">
+  <p>
+    <strong>Name:</strong>
+    <%= document.name %>
+  </p>
+
+  <% if document.doc.attached? %>
+    <%= image_tag document.doc, class: 'img-fluid', style: 'width:200px;' %>
+  <% end %>
+</div>

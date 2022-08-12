@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+  has_many :documents
+
   def login
     @login || self.email || self.username
   end
